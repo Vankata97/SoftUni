@@ -1,2 +1,2 @@
 # SoftUni
-Exercise and Exams from Softuni
+Exercises and Exams from Softuni

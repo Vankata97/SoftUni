@@ -1,0 +1,22 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class ex2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Set<String> chemicalElements = new TreeSet<>();
+
+        int countOfElements = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < countOfElements; i++) {
+            String[] elements = scanner.nextLine().split(" ");
+            chemicalElements.addAll(Arrays.asList(elements));
+        }
+
+        chemicalElements.forEach(x -> System.out.print(x + " "));
+    }
+}

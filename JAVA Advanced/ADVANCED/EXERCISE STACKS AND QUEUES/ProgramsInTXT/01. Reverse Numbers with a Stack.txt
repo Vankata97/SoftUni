@@ -1,0 +1,21 @@
+package com.company;
+
+import java.lang.reflect.Array;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] input = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt).toArray();
+        ArrayDeque<Integer> numbers = new ArrayDeque<>();
+        for (int element : input) {
+            numbers.push(element);
+        }
+        for (Integer number: numbers) {
+            System.out.print(number + " ");
+        }
+    }
+
+}

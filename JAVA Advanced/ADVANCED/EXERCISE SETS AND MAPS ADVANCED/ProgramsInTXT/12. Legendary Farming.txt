@@ -1,0 +1,76 @@
+package com.company;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, Integer> junk = new TreeMap<>();
+        Map<String, Integer> legend = new HashMap<>() {{
+            put("shards", 0);
+            put("fragments", 0);
+            put("motes", 0);
+        }};
+
+        boolean isObtained = false;
+        while (!isObtained) {
+            int count = scanner.nextInt();
+            String type = scanner.next().toLowerCase();
+
+            if (legend.containsKey(type)) {
+                legend.put(type, legend.get(type) + count);
+                isObtained = hasLegendary(legend);
+                if (isObtained) {
+                    break;
+                }
+            } else {
+                junk.putIfAbsent(type, 0);
+                int old = junk.get(type);
+                junk.put(type, count + old);
+            }
+        }
+
+        legend.entrySet().stream().sorted((f, s) -> {
+            if (s.getValue() - f.getValue() == 0) { 
+                return f.getKey().compareTo(s.getKey());
+            } else {
+                return s.getValue() - f.getValue();
+            }
+        }).forEach(
+                entry -> System.out.println
+                        (entry.getKey() + ": " + entry.getValue()));
+
+
+//          TreeMap:
+//        legend.entrySet().stream().sorted((f,s)->s.getValue()-f.getValue())
+//                .forEach(i-> System.out.printf("%s: %d%n", i.getKey()
+//                        ,i.getValue()));
+
+        junk.forEach((key, value) -> System.out.printf("%s: %d%n",
+                key, value));
+    }
+
+    private static boolean hasLegendary(Map<String, Integer> items) {
+        if (items.get("shards") >= 250) {
+            System.out.println("Shadowmourne obtained!");
+            items.put("shards", items.get("shards") - 250);
+            return true;
+        } else if (items.get("fragments") >= 250) {
+            System.out.println("Valanyr obtained!");
+            items.put("fragments", items.get("fragments") - 250);
+            return true;
+        } else if (items.get("motes") >= 250) {
+            System.out.println("Dragonwrath obtained!");
+            items.put("motes", items.get("motes") - 250);
+            return true;
+        }
+        return false;
+
+    }
+}

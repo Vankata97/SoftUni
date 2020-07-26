@@ -1,0 +1,29 @@
+package com.company;
+
+import java.io.InputStreamReader;
+import java.lang.management.MemoryType;
+import java.lang.reflect.Array;
+import java.util.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Set<String> names = new LinkedHashSet<>();
+
+        int count = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < count; i++) {
+            String nextName = scanner.nextLine();
+            names.add(nextName);
+        }
+        
+
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+    }
+}

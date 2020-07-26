@@ -1,0 +1,74 @@
+//1
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        String[] rowsCols = input.nextLine().split("\\s+");
+
+        int rows = Integer.parseInt(rowsCols[0]);
+        int cols = Integer.parseInt(rowsCols[1]);
+
+        String[][] matrix = new String[rows][cols];
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                matrix[row][col] = "" + (char) ('a' + row) + (char) ('a' + row + col) + (char) ('a' + row);
+            }
+        }
+        printMatrix(matrix);
+    }
+
+    private static void printMatrix(String[][] matrix) {
+        for (String[] aMatrix : matrix) {
+            for (String anAMatrix : aMatrix) {
+                System.out.print(anAMatrix + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//2
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int rows = Integer.parseInt(scanner.nextLine());
+        int cols = Integer.parseInt(scanner.nextLine());
+        String[][] matrix = new String[rows][cols];
+
+        char startSymbol = 97;
+        for (int row = 0; row < rows; row++) {
+            char middleSymbol = startSymbol;
+
+            for (int col = 0; col < cols; col++) {
+                StringBuilder result = new StringBuilder(3);
+                result.append(startSymbol).append(middleSymbol).append(startSymbol);
+                matrix[row][col] = result.toString();
+                result.setLength(0);
+                middleSymbol++;
+            }
+
+            startSymbol++;
+        }
+        printCharMatrix(matrix);
+    }
+
+    private static void printCharMatrix(String[][] finalMatrix) {
+        for (String[] matrix : finalMatrix) {
+            for (String element : matrix) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}

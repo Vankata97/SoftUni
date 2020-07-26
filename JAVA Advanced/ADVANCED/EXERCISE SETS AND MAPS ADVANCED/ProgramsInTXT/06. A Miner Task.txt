@@ -1,0 +1,30 @@
+package com.company;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        LinkedHashMap<String, Long> map = new LinkedHashMap<>();
+        String input = scanner.nextLine();
+        while (!input.equals("stop")){
+            String res = input;
+            if(!map.containsKey(res)){
+                map.put(res,Long.parseLong(scanner.nextLine()));
+            } else {
+                map.put(res,map.get(res)+Long.parseLong(scanner.nextLine()));
+            }
+            input = scanner.nextLine();
+        }
+        for (Map.Entry<String, Long> entry : map.entrySet()) {
+            System.out.println(String.format("%s -> %d",entry.getKey(),entry.getValue()));
+        }
+
+    }
+}

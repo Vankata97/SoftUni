@@ -1,3 +1,2 @@
 # SoftUni
-Exercise and Exams from Softunifffffff
-35353535
+Exercise and Exams from Softuni

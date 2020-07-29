@@ -1,12 +1,11 @@
 package greedyTimes;
 
-public class Cash {
+public class Cash extends BaseEntity {
     private String name;
-    private long value;
 
     public Cash(String name, long value) {
+        super(value);
         this.name = name;
-        this.value = value;
     }
 
     public String getName() {
@@ -17,11 +16,4 @@ public class Cash {
         this.name = name;
     }
 
-    public long getValue() {
-        return value;
-    }
-
-    public void setValue(long value) {
-        this.value = value;
-    }
 }

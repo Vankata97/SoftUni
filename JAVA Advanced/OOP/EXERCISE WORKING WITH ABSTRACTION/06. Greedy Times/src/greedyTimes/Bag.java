@@ -48,28 +48,11 @@ public class Bag {
         this.capacity = capacity;
     }
 
-    public boolean doesGemsContainsGem(String name) {
-        for (Gem current : this.getGems()) {
-            if (current.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
+    public void decreaseCapacity(long amount) {
+        this.setCapacity(this.getCapacity() - amount);
     }
 
-    public long totalGems() {
-        return this.getGems().stream().mapToLong(Gem::getValue).sum();
-    }
-
-    public boolean containsCash(String name) {
-        for (Cash current : this.getCash()) {
-            if (current.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
-    public long totalCash() {
-        return this.getCash().stream().mapToLong(Cash::getValue).sum();
+    private void print() {
+        //:TODO
     }
 }

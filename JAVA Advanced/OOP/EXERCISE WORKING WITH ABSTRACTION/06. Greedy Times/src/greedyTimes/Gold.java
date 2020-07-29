@@ -1,17 +1,9 @@
 package greedyTimes;
 
-public class Gold {
+public class Gold extends BaseEntity {
     private long value;
 
     public Gold(long value) {
-        this.value = value;
-    }
-
-    public long getValue() {
-        return value;
-    }
-
-    public void setValue(long value) {
-        this.value = value;
+        super(value);
     }
 }
